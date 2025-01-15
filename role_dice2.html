@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dice Roller</title>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+#dice {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  user-select: none; /* Prevent text selection */
+  transition: transform 0.5s ease-in-out; /* Smooth rotation */
+}
+
+#dice.rolling {
+  animation: roll 0.5s linear infinite; /* Apply rolling animation */
+}
+
+@keyframes roll {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div id="dice">1</div>
+<button onclick="rollDice()">Roll Dice</button>
+
+<script>
+const dice = document.getElementById('dice');
+
+function rollDice() {
+  dice.classList.add('rolling'); // Start animation
+
+  setTimeout(() => {
+    dice.classList.remove('rolling'); // Stop animation
+
+    const randomNumber = Math.floor(Math.random() * 6) + 1;
+    dice.textContent = randomNumber;
+
+  }, 500); // Match animation duration
+}
+
+</script>
+
+</body>
+</html>

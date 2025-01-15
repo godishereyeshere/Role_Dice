@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Roll Animation</title>
+  <style>body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .dice-container {
+    perspective: 1000px;
+  }
+  
+  .dice {
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 1s ease-in-out;
+    position: relative;
+  }
+  
+  .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .face.one { transform: rotateY(0deg) translateZ(50px); }
+  .face.two { transform: rotateY(90deg) translateZ(50px); }
+  .face.three { transform: rotateY(180deg) translateZ(50px); }
+  .face.four { transform: rotateY(-90deg) translateZ(50px); }
+  .face.five { transform: rotateX(90deg) translateZ(50px); }
+  .face.six { transform: rotateX(-90deg) translateZ(50px); }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  </style>
+</head>
+<body>
+  <div class="dice-container">
+    <div class="dice" id="dice">
+      <div class="face one">1</div>
+      <div class="face two">2</div>
+      <div class="face three">3</div>
+      <div class="face four">4</div>
+      <div class="face five">5</div>
+      <div class="face six">6</div>
+    </div>
+  </div>
+  <button id="rollButton">Roll Dice</button>
+
+  <script>const dice = document.getElementById('dice');
+    const rollButton = document.getElementById('rollButton');
+    
+    rollButton.addEventListener('click', () => {
+      const xRotation = Math.floor(Math.random() * 4) * 90;
+      const yRotation = Math.floor(Math.random() * 4) * 90;
+    
+      dice.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+    });
+    </script>
+</body>
+</html>

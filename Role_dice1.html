@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+        <style>
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                font-family: "Montserrat", "sans-serif";
+                color: #424242;
+                overflow: hidden;
+                background: #f2f4f8;
+            }
+
+            .table {
+                height: 100%;
+                width: 100%;
+                display: table;
+            }
+
+            .cell {
+                display: table-cell;
+                height: 100%;
+                vertical-align: middle;
+            }
+
+            p {
+                font-size: 40vmin;
+                text-align: center; 
+                margin: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="table">
+            <div class="cell">
+                <p id="result"></p>
+            </div>
+        </div>
+
+        <script>
+            var rolling = true
+
+            function roll() {
+                rolling = setInterval(function(){
+                    const number = Math.floor(Math.random() * 6) + 1
+                    document.getElementById("result").innerHTML = number
+                }, 1)
+            }
+
+            document.body.onkeydown = function(e) {
+                if (e.keyCode == 32 && !rolling) {
+                    roll()
+                } else {
+                    clearInterval(rolling)
+                    rolling = false
+                }
+            }
+
+            roll()
+        </script>
+    </body>
+</html>

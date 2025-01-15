@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه اصلی</title>
+    <style>* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    body {
+        background-color: #f4f4f9;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    header {
+        background-color: #6200ea;
+        color: white;
+        padding: 1rem 0;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin-left: 20px;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    
+    .hamburger .line {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+    }
+    
+    .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background-color: #bb86fc;
+        color: white;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        margin-top: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #6200ea;
+        }
+    
+        .nav-links li {
+            margin: 10px 0;
+            text-align: center;
+        }
+    
+        .hamburger {
+            display: flex;
+        }
+    
+        .nav-links.active {
+            display: flex;
+        }
+    }</style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">لوگو</div>
+            <ul class="nav-links">
+                
+                <li><a href="role_dice1.html">تاس من</a></li>
+                <li><a href="role_dice2.html">تاس gemini</a></li>
+                <li><a href="role_dice3.html">تاس deepseek</a></li>
+                <li><a href="role_dice4.html">تاس chat gpt</a></li>
+                <li><a href="role_dice5.html">تاس تخته نرد </a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>به صفحه اصلی خوش آمدید</h1>
+            <p>پنج مدل تاس دیگه چی میخوای</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>تمامی حقوق محفوظ است.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });</script>
+</body>
+</html>
